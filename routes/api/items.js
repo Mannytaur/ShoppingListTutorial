@@ -8,7 +8,9 @@ const Item = require('../../models/Item');
 // @desc Get All Items
 // @access Public
 router.get('/', (req, res) => {
-    Item.find()
+    Item.find({},'name date', function(err, docs){}) //filter out results and only show name
+        .where('name',/^S/i) //use .where({'name':'test'}) to get only results where name="test"
+                             //use .where('name',/^S/i) to get only results where name starts with 'S'
         .sort({ date: -1 })
         .then(items => res.json(items));
 });
