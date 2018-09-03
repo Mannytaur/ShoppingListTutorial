@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
-const db = process.env.MONGO;//require('./config/keys').mongoURI;
+const db = process.env.MONGODB_URI;
 
 // Connect to Mongo
 mongoose
