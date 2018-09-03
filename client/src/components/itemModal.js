@@ -15,7 +15,8 @@ import { addItem } from '../actions/itemActions';
 class ItemModal extends Component{
   state = {
     modal: false,
-    name: ''
+    name: '',
+    price: ''
   };
 
   toggle = () => {
@@ -25,17 +26,18 @@ class ItemModal extends Component{
   };
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]:e.target.value});
   };
 
   onSubmit = e => {
     e.preventDefault();
     
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
+      price: this.state.price
     };
 
-    //Add iterm via addItem action
+    //Add item via addItem action
     this.props.addItem(newItem);
 
     //close modal
@@ -64,6 +66,15 @@ class ItemModal extends Component{
                   name="name"
                   id="item"
                   placeholder="Add shopping item"
+                  onChange={this.onChange}
+                />
+                <br/>
+                <Label for="price">Price</Label>
+                <Input 
+                  type="text"
+                  name="price"
+                  id="Iprice"
+                  placeholder="Add price"
                   onChange={this.onChange}
                 />
                 <Button 
