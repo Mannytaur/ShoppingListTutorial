@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
-const db = proces.env.MONGODB;//'mongodb://test:testpw1@ds249428.mlab.com:49428/shoppinglist';
+const db = process.env.MONGODB;//'mongodb://test:testpw1@ds249428.mlab.com:49428/shoppinglist';
 
 // Connect to Mongo
 mongoose
